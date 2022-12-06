@@ -28,12 +28,31 @@ console.log(info("ikram", "27"));
 // E. maak een functie dat voornaam en achternaam ontvangt
 // en de volledige naam gescheiden met een komma teruggeeft
 // voorbeeld: geefVolledigeNaam("David","Verhulst")
+
+function fullName(voorNaam, achterNaam) {
+  return voorNaam + " , " + achterNaam;
+}
+console.log(fullName("ikram", "lamsaddeq"));
+
 // F. maak een functie dat 5 getallen ontvangt.
 // ze allen optelt en teruggeeft
 // voorbeeld: sumIt(1,5,6,9,2)
+
+function sumIt(nr, nr2, nr2, nr4, nr5) {
+  let som = 0;
+  return (som = nr + nr2 + nr2 + nr4 + nr5);
+}
+console.log(sumIt(10, 32, 55, 66, 98));
+
 // G. maak een functie dat zetInHoofdletters noemt.
+
 // stuur 3 namen naar die functie.
 // Zet die 3 namen in hoofdletters en plaats ze in een array
+
+function zetInHoofdletters(nm, nm2, nm3) {
+  return [nm.toUpperCase(), nm2.toUpperCase(), nm3.toUpperCase()];
+}
+console.log(zetInHoofdletters("ikram", "kiko", "kami"));
 // de functie geeft een array terug met de 3 namen in hoofdletters
 // voorbeeld: geefArrayMetUpperNames("Bert","Els","Cindy")
 // H. maak een functie dat een naam en en getal ontvangt.
