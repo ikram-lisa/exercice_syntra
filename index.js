@@ -55,6 +55,15 @@ function zetInHoofdletters(nm, nm2, nm3) {
 console.log(zetInHoofdletters("ikram", "kiko", "kami"));
 // de functie geeft een array terug met de 3 namen in hoofdletters
 // voorbeeld: geefArrayMetUpperNames("Bert","Els","Cindy")
+function geefArrayMetUpperNames(arr) {
+  return arr.map((word) => {
+    const capitalizedFirst = word.charAt(0).toUpperCase();
+    const rest = word.slice(1).toLowerCase();
+    return capitalizedFirst + rest;
+  });
+}
+const words = ["ikram", "naram", "aman"];
+console.log(geefArrayMetUpperNames(words));
 // H. maak een functie dat een naam en en getal ontvangt.
 // print die naam dan zo vaak uit dan het meegegeven getal
 // voorbeeld: printKeerUit("David", 6)
