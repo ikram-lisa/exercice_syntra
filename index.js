@@ -38,21 +38,31 @@ console.log(fullName("ikram", "lamsaddeq"));
 // ze allen optelt en teruggeeft
 // voorbeeld: sumIt(1,5,6,9,2)
 
-function sumIt(nr, nr2, nr2, nr4, nr5) {
-  let som = 0;
-  return (som = nr + nr2 + nr2 + nr4 + nr5);
+function sumIt(array) {
+  let sum = 0;
+
+  for (let i = 0; i < array.length; i += 1) {
+    sum += array[i];
+  }
+
+  return sum;
 }
-console.log(sumIt(10, 32, 55, 66, 98));
+
+console.log(sumIt([1, 4, 0, 9, -3]));
 
 // G. maak een functie dat zetInHoofdletters noemt.
 
 // stuur 3 namen naar die functie.
 // Zet die 3 namen in hoofdletters en plaats ze in een array
 
-function zetInHoofdletters(nm, nm2, nm3) {
-  return [nm.toUpperCase(), nm2.toUpperCase(), nm3.toUpperCase()];
+function zetInHoofdletters(a) {
+  return a.map((wrd) => {
+    const capitalized = wrd.toUpperCase();
+    return capitalized;
+  });
 }
-console.log(zetInHoofdletters("ikram", "kiko", "kami"));
+const wrds = ["ikr", "kami", "kabi"];
+console.log(zetInHoofdletters(wrds));
 // de functie geeft een array terug met de 3 namen in hoofdletters
 // voorbeeld: geefArrayMetUpperNames("Bert","Els","Cindy")
 function geefArrayMetUpperNames(arr) {
@@ -67,9 +77,11 @@ console.log(geefArrayMetUpperNames(words));
 // H. maak een functie dat een naam en en getal ontvangt.
 // print die naam dan zo vaak uit dan het meegegeven getal
 // voorbeeld: printKeerUit("David", 6)
+
 // I. Maak een functie printLijn. Geef mee met welk karakter je de lijn wenst
 // te printen en als tweede parameter hoe lang die lijn moet zijn.
 // voorbeeld: printLijn("-",25);
+
 // VANAF HIER START THE REAL DEAL !!!
 // 1. Write a JavaScript function to check if a certain word is a Palindrome.
 // 2. Write a JavaScript function to get a random item from an array.
