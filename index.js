@@ -41,14 +41,14 @@ console.log(fullName("ikram", "lamsaddeq"));
 function sumIt(array) {
   let sum = 0;
 
-  for (let i = 0; i < array.length; i += 1) {
+  for (let i = 0; i < array.length; i++) {
     sum += array[i];
   }
 
   return sum;
 }
 
-console.log(sumIt([1, 4, 0, 9, -3]));
+console.log(sumIt([1, 4, 0, 9, 3]));
 
 // G. maak een functie dat zetInHoofdletters noemt.
 
@@ -78,12 +78,39 @@ console.log(geefArrayMetUpperNames(words));
 // print die naam dan zo vaak uit dan het meegegeven getal
 // voorbeeld: printKeerUit("David", 6)
 
+function printKeerUit(naam, nr) {
+  for (i = 0; i < nr; i++) {
+    console.log(naam);
+  }
+}
+console.log(printKeerUit("ikram", 6));
+
 // I. Maak een functie printLijn. Geef mee met welk karakter je de lijn wenst
 // te printen en als tweede parameter hoe lang die lijn moet zijn.
 // voorbeeld: printLijn("-",25);
+function printKeerUit(carac, nr) {
+  let caracs = carac.repeat(nr);
+  return caracs;
+}
+console.log(printKeerUit("-", 26));
 
 // VANAF HIER START THE REAL DEAL !!!
 // 1. Write a JavaScript function to check if a certain word is a Palindrome.
+function Palindrome(word) {
+  let re = /[\W_]/g;
+  word = word.toLowerCase().replace(re, "");
+  let len = word.length;
+  for (let i = 0; i < len / 2; i++) {
+    if (word[i] !== word[len - 1 - i]) {
+      return false;
+    }
+    {
+      return true;
+    }
+  }
+}
+console.log(Palindrome("A man, a plan, a canal. Panama"));
+
 // 2. Write a JavaScript function to get a random item from an array.
 // 3. Write a JavaScript program which accept a string as input and swap the case of each character.
 // For example if you input 'The Quick Brown Fox' the output should be 'tHE qUICK bROWN fOX'.
