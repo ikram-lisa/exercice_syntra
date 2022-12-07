@@ -109,12 +109,41 @@ function Palindrome(word) {
     }
   }
 }
-console.log(Palindrome("A man, a plan, a canal. Panama"));
+console.log(Palindrome("never odd or even"));
 
 // 2. Write a JavaScript function to get a random item from an array.
+
+function random(item) {
+  return item[Math.floor(Math.random() * item.length)];
+}
+let item = [254, 45, 212, 365, 2543];
+console.log(random(item));
+
 // 3. Write a JavaScript program which accept a string as input and swap the case of each character.
 // For example if you input 'The Quick Brown Fox' the output should be 'tHE qUICK bROWN fOX'.
+function swap(str) {
+  let newLetters = "";
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] == str[i].toUpperCase()) {
+      newLetters += str[i].toLowerCase();
+    } else {
+      newLetters += str[i].toUpperCase();
+    }
+  }
+
+  return newLetters;
+}
+console.log(swap("The Quick Brown Fox"));
 // 4.Write a JavaScript function to compute the sum of an array of integers.
+function compute(str) {
+  let sum = 0;
+  for (let i = 0; i < str.length; i++) {
+    sum += str[i];
+  }
+  return sum;
+}
+console.log(compute([1, 2, 3, 4, 5, 666, 77, 28, 19, 66]));
+
 // 5. Write a JavaScript function to remove a specific element from an array
 // var myNames = ["John","Cindy","Omer","Barbie","Barbie"];
 // removeSpecificelement(myNames,"Barbie");
