@@ -147,15 +147,67 @@ console.log(compute([1, 2, 3, 4, 5, 666, 77, 28, 19, 66]));
 // 5. Write a JavaScript function to remove a specific element from an array
 // var myNames = ["John","Cindy","Omer","Barbie","Barbie"];
 // removeSpecificelement(myNames,"Barbie");
+
+var arr = ["John", "Cindy", "Omer", "Barbie", "Barbie"];
+function dup(data) {
+  return data.filter((value, index) => data.indexOf(value) !== index);
+}
+console.log(dup(arr));
 // 6. Write a function to remove all strings with less than X characters
 // from an array of strings
+function remove(v, index, arr) {
+  if (v === 3) {
+    arr.splice(index, 4);
+    return true;
+  }
+  return false;
+}
+const myArray = [5, 10, 2, 3, 15];
+
+const delet = myArray.filter(remove);
+console.log(`myArray values: ${myArray}`);
+console.log(`variable x value: ${delet}`);
+
+function removeChar(arr, lengte) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].length === lengte) {
+      arr.splice(i, lengte);
+    }
+  }
+  return arr;
+}
+console.log(removeChar(["adaam", "Candy", "Johaan", "Megan", "An", "Jo"], 4));
+
 // 7. Write a JavaScript function to generate an array with the first X Fibonacci numbers.
+let fib = [0, 1];
+function listFibonacci(n) {
+  for (let i = 1; i < n; i++) {
+    fib.push(fib[i] + fib[i - 1]);
+  }
+  console.log(fib);
+}
+listFibonacci(6);
+listFibonacci(18);
+listFibonacci(9);
+listFibonacci(10);
 // 8. Write a JavaScript function that returns array elements larger than a number
 // given:
 //  var numbers = [5,2,20,60,45];
 //  var toCheck = 6;
 // returned array:
 //  [20,60,45]
+
+function largeElement(arr, les) {
+  let largestNum = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > les) {
+      largestNum.push(arr[i]);
+    }
+  }
+  return largestNum;
+}
+console.log(largeElement([5, 2, 20, 60, 45], 6));
+
 // 9. Write a Javascript function to generate a random color in format rgb(0,0,0);
 // 10. Write a JavaScript program to find the types of a given angle.  Go to the editor
 //   Types of angles:
