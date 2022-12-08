@@ -209,6 +209,22 @@ function largeElement(arr, les) {
 console.log(largeElement([5, 2, 20, 60, 45], 6));
 
 // 9. Write a Javascript function to generate a random color in format rgb(0,0,0);
+function randomRGB() {
+  var roundValue = Math.round,
+    rndmValue = Math.random,
+    maxNum = 255;
+  return (
+    "rgba(" +
+    roundValue(rndmValue() * maxNum) +
+    "," +
+    roundValue(rndmValue() * maxNum) +
+    "," +
+    roundValue(rndmValue() * maxNum) +
+    ")"
+  );
+}
+
+console.log(randomRGB());
 // 10. Write a JavaScript program to find the types of a given angle.  Go to the editor
 //   Types of angles:
 //     Acute angle: An angle between 0 and 90 degrees.
