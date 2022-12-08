@@ -231,11 +231,42 @@ console.log(randomRGB());
 //     Right angle: An 90 degree angle.
 //     Obtuse angle: An angle between 90 and 180 degrees.
 //     Straight angle: A 180 degree angle.
+function angle_Type(angle) {
+  if (angle < 90) {
+    return "Acute angle: An angle between 0 and 90 degrees.";
+  }
+  if (angle === 90) {
+    return "Right angle: An 90 degree angle.";
+  }
+  if (angle < 180) {
+    return "Obtuse angle: An angle between 90 and 180 degrees.";
+  }
+  return "Straight angle: A 180 degree angle.";
+}
+console.log(angle_Type(47));
+console.log(angle_Type(90));
+console.log(angle_Type(145));
+console.log(angle_Type(180));
 // 11. Write a JavaScript function to merge two arrays and removes all duplicates elements.
 // FROM HERE NO FOR LOOPS ALLOWED
+function arrMerge(arr1, arr2) {
+  //   let arr = arr1.concat(arr2);
+  for (let i = 0; i < arr2.length; i++) {
+    if (!arr1.includes(arr2[i])) {
+      arr1.push(arr2[i]);
+    }
+  }
+  return arr1;
+}
+const arr1 = [1, 2, 3];
+
+const arr2 = [2, 30, 1];
+console.log(arrMerge(arr1, arr2));
+
 // 12. given [2,1,6,4]
 //     expected => [8,1,216,64] => the power 3
 //     thirdPower([2,1,6,4])
+
 // 13. given [2,1,6,4]
 //     expected => [8,1,216,64] => the power N
 //     nthPower([2,1,6,4],16)
