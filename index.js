@@ -169,12 +169,9 @@ console.log(`myArray values: ${myArray}`);
 console.log(`variable x value: ${delet}`);
 
 function removeChar(arr, lengte) {
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i].length === lengte) {
-      arr.splice(i, lengte);
-    }
-  }
-  return arr;
+  return arr.filter(function (word) {
+    return word.length > lengte;
+  });
 }
 console.log(removeChar(["adaam", "Candy", "Johaan", "Megan", "An", "Jo"], 4));
 
@@ -275,5 +272,115 @@ console.log(arrMerge(arr1, arr2));
 //     calc sum    (reduce)
 // 15. given ["Ellen","bert","Bart","zaki","Sandra","Soroush"]
 //   remove all the names that do not start with a capital
+
+const array = ["Ellen", "bert", "Bart", "zaki", "Sandra", "Soroush"];
+
+const all = array.filter((e) => /^[A-Za-z0-Z–9]+$/g.test(e));
+console.log(all);
+
+function firstIsUppercase(str) {
+  const firstLetter = str[0];
+  if (
+    firstLetter.toUpperCase() === firstLetter &&
+    firstLetter !== firstLetter.toLowerCase()
+  ) {
+    return true;
+  }
+
+  return false;
+}
+console.log(firstIsUppercase("Hello"));
+console.log(firstIsUppercase("100 percent"));
+
+function capitalizeWords(arr) {
+  return arr.map((e) => {
+    if (e.charAt(0).toUpperCase()) {
+      return true;
+    }
+    {
+      return false;
+    }
+  });
+}
+
+console.log(
+  capitalizeWords(["Ellen", "bert", "Bart", "zaki", "Sandra", "Soroush"])
+);
 // 16. Write a Javascript function to find how many times a certain number occurs in that array.
+
+function getOccurrence(array, value) {
+  return array.filter((v) => v === value).length;
+}
+console.log(getOccurrence([2, 3, 1, 3, 4, 5, 3, 1], 4));
 // 17. Write a JavaScript program to find the most frequent item of an array. (modifié)
+
+function findMostFrequest(arr) {
+  let compare = "";
+  let mostFreq = "";
+
+  arr.reduce((acc, val) => {
+    if (val in acc) {
+      // if key already exists
+      acc[val]++; // then increment it by 1
+    } else {
+      acc[val] = 1; // or else create a key with value 1
+    }
+    if (acc[val] > compare) {
+      // if value of that key is greater
+      // than the compare value.
+      compare = acc[val]; // than make it a new compare value.
+      mostFreq = val; // also make that key most frequent.
+    }
+    return acc;
+  }, {});
+  console.log("Most Frequent Item is:", mostFreq);
+}
+let data = [
+  "cat",
+  "dog",
+  "parrot",
+  "dog",
+  "cat",
+  "elephant",
+  "elephant",
+  "elephant",
+  "elephant",
+  "lion",
+  "cat",
+  "elephant",
+  "lion",
+  "lion",
+  "lion",
+  "parrot",
+];
+console.log(findMostFrequest(data));
+
+function getMostFrequent(arr) {
+  const hashmap = arr.reduce((acc, val) => {
+    acc[val] = (acc[val] || 0) + 1;
+    return acc;
+  }, {});
+  return Object.keys(hashmap).reduce((a, b) =>
+    hashmap[a] > hashmap[b] ? a : b
+  );
+}
+console.log(
+  getMostFrequent([
+    "cat",
+    "dog",
+    "parrot",
+    "dog",
+    "cat",
+    "elephant",
+    "elephant",
+    "elephant",
+    "elephant",
+    "lion",
+    "cat",
+    "elephant",
+    "lion",
+    "lion",
+    "lion",
+    "parrot",
+  ])
+);
