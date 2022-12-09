@@ -270,6 +270,7 @@ console.log(arrMerge(arr1, arr2));
 // 14. given [2,1,6,4]
 //     calc avg
 //     calc sum    (reduce)
+
 // 15. given ["Ellen","bert","Bart","zaki","Sandra","Soroush"]
 //   remove all the names that do not start with a capital
 
@@ -384,3 +385,24 @@ console.log(
     "parrot",
   ])
 );
+const a = ["Wind", "Water", "Fire"];
+a.join(); // 'Wind,Water,Fire'
+a.join(", "); // 'Wind, Water, Fire'
+a.join(" + "); // 'Wind + Water + Fire'
+a.join(""); // 'WindWaterFire'
+console.log(a.join(" + "));
+
+// 18. Write a JavaScript function to chop a string into chunks of a given length.
+function string_chop(str, length) {
+  str = String(str);
+  length = Math.floor(length);
+  if (length > 0) {
+    return str.match(RegExp(".{1," + length + "}", "g"));
+  }
+  {
+    return [str];
+  }
+}
+console.log(string_chop("w3resource"));
+console.log(string_chop(["w3resource"], 2));
+console.log(string_chop(["w3resource"], 3));
