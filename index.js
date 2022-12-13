@@ -270,14 +270,20 @@ console.log(arrMerge(arr1, arr2));
 // 14. given [2,1,6,4]
 //     calc avg
 //     calc sum    (reduce)
+function Averge(arr) {
+  let avg = arr.reduce((acc, v) => acc + v / arr.length, 0);
+  return avg;
+}
 
+console.log(Averge([2, 1, 6, 4]));
 // 15. given ["Ellen","bert","Bart","zaki","Sandra","Soroush"]
 //   remove all the names that do not start with a capital
 
-const array = ["Ellen", "bert", "Bart", "zaki", "Sandra", "Soroush"];
-
-const all = array.filter((e) => /^[A-Za-z0-Z–9]+$/g.test(e));
-console.log(all);
+function Capital(array) {
+  const all = array.filter((e) => !/^[a-z]+$/g.test(e));
+  return all;
+}
+console.log(Capital(["Ellen", "bert", "Bart", "zaki", "Sandra", "Soroush"]));
 
 function firstIsUppercase(str) {
   const firstLetter = str[0];
@@ -294,14 +300,14 @@ console.log(firstIsUppercase("Hello"));
 console.log(firstIsUppercase("100 percent"));
 
 function capitalizeWords(arr) {
-  return arr.map((e) => {
-    if (e.charAt(0).toUpperCase()) {
+  let cap = arr.filter((e) => {
+    if (e.charAt(0) == e.charAt(0).toUpperCase()) {
       return true;
-    }
-    {
+    } else {
       return false;
     }
   });
+  return cap;
 }
 
 console.log(
@@ -312,85 +318,8 @@ console.log(
 function getOccurrence(array, value) {
   return array.filter((v) => v === value).length;
 }
-console.log(getOccurrence([2, 3, 1, 3, 4, 5, 3, 1], 4));
+console.log(getOccurrence([2, 3, 1, 3, 4, 5, 3, 1], 3));
 // 17. Write a JavaScript program to find the most frequent item of an array. (modifié)
-
-function findMostFrequest(arr) {
-  let compare = "";
-  let mostFreq = "";
-
-  arr.reduce((acc, val) => {
-    if (val in acc) {
-      // if key already exists
-      acc[val]++; // then increment it by 1
-    } else {
-      acc[val] = 1; // or else create a key with value 1
-    }
-    if (acc[val] > compare) {
-      // if value of that key is greater
-      // than the compare value.
-      compare = acc[val]; // than make it a new compare value.
-      mostFreq = val; // also make that key most frequent.
-    }
-    return acc;
-  }, {});
-  console.log("Most Frequent Item is:", mostFreq);
-}
-let data = [
-  "cat",
-  "dog",
-  "parrot",
-  "dog",
-  "cat",
-  "elephant",
-  "elephant",
-  "elephant",
-  "elephant",
-  "lion",
-  "cat",
-  "elephant",
-  "lion",
-  "lion",
-  "lion",
-  "parrot",
-];
-console.log(findMostFrequest(data));
-
-function getMostFrequent(arr) {
-  const hashmap = arr.reduce((acc, val) => {
-    acc[val] = (acc[val] || 0) + 1;
-    return acc;
-  }, {});
-  return Object.keys(hashmap).reduce((a, b) =>
-    hashmap[a] > hashmap[b] ? a : b
-  );
-}
-console.log(
-  getMostFrequent([
-    "cat",
-    "dog",
-    "parrot",
-    "dog",
-    "cat",
-    "elephant",
-    "elephant",
-    "elephant",
-    "elephant",
-    "lion",
-    "cat",
-    "elephant",
-    "lion",
-    "lion",
-    "lion",
-    "parrot",
-  ])
-);
-const a = ["Wind", "Water", "Fire"];
-a.join(); // 'Wind,Water,Fire'
-a.join(", "); // 'Wind, Water, Fire'
-a.join(" + "); // 'Wind + Water + Fire'
-a.join(""); // 'WindWaterFire'
-console.log(a.join(" + "));
 
 // 18. Write a JavaScript function to chop a string into chunks of a given length.
 function string_chop(str, length) {
